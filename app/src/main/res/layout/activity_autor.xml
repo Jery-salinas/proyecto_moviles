@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,83 +8,96 @@
     tools:context=".MainActivity"
     android:background="@color/background_color">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/fab_edit">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_pading"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/size_img_profile"
+                app:cardElevation="8dp">
+                <ImageView
+                    android:id="@+id/imgprofile"
+                    android:layout_width="@dimen/size_img_profile"
+                    android:layout_height="@dimen/size_img_profile"
+                    android:src="@drawable/gato"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Matricula -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Matricula"
+                android:layout_marginTop="@dimen/margin_top_default"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S20004654"
+                android:textSize="@dimen/size_txt_label"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="@dimen/margin_top_default" />
+
+            <!-- Nombre -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:layout_marginTop="@dimen/margin_top_default"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jeremy"
+                android:textSize="@dimen/size_txt_label"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="@dimen/margin_top_default" />
+
+            <!-- Teléfono -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono"
+                android:layout_marginTop="@dimen/margin_top_default"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+52 294 456 7890"
+                android:textSize="@dimen/size_txt_label"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="@dimen/margin_top_default" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Botón flotante -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_edit"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/common_pading"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/size_img_profile"
-            app:cardElevation="8dp">
-            <ImageView
-                android:id="@+id/imgprofile"
-                android:layout_width="@dimen/size_img_profile"
-                android:layout_height="@dimen/size_img_profile"
-                android:src="@drawable/gato"
-                android:scaleType="centerCrop"/>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Sección de correo -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Matricula"
-            android:layout_marginTop="@dimen/margin_top_default"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/txtemail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="S20004654"
-
-            android:textSize="@dimen/size_txt_label"
-            android:textColor="@color/text_secondary"
-            android:layout_marginTop="@dimen/margin_top_default"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre"
-            android:layout_marginTop="@dimen/margin_top_default"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/txtname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jeremy "
-            android:textSize="@dimen/size_txt_label"
-            android:textColor="@color/text_secondary"
-            android:layout_marginTop="@dimen/margin_top_default"/>
-
-
-
-        <!-- Sección de teléfono -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Teléfono"
-            android:layout_marginTop="@dimen/margin_top_default"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/txtphone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+52 294 456 7890"
-            android:textSize="@dimen/size_txt_label"
-            android:textColor="@color/text_secondary"
-            android:layout_marginTop="@dimen/margin_top_default"/>
-
-
-
-    </LinearLayout>
-</ScrollView>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/icon_send"
+        app:backgroundTint="@color/verde" />
+</RelativeLayout>

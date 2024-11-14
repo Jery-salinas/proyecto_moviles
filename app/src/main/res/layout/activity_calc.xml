@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/verde"
         android:elevation="4dp"
         android:titleTextColor="@android:color/white"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
@@ -42,32 +42,33 @@
 
             <EditText
                 android:id="@+id/editTextNumero1"
-                android:layout_width="match_parent"
+                android:layout_width="298dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:hint="Ingresa número 1"
                 android:inputType="numberDecimal"
-                android:padding="12dp"
-                android:layout_marginBottom="16dp" />
+                android:padding="12dp" />
 
             <EditText
                 android:id="@+id/editTextNumero2"
-                android:layout_width="match_parent"
+                android:layout_width="298dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:hint="Ingresa número 2"
                 android:inputType="numberDecimal"
-                android:padding="12dp"
-                android:layout_marginBottom="16dp" />
+                android:padding="12dp" />
 
             <Button
                 android:id="@+id/buttonSumar"
-                android:layout_width="match_parent"
+                android:layout_width="221dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:text="Sumar"
-                android:layout_marginBottom="16dp" />
+                />
 
             <Button
                 android:id="@+id/buttonRaiz"
-                android:layout_width="match_parent"
+                android:layout_width="221dp"
                 android:layout_height="wrap_content"
                 android:text="Raiz"
                 android:layout_marginBottom="16dp" />

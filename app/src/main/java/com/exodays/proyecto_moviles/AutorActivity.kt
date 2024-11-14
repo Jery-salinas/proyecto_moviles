@@ -34,6 +34,16 @@ class AutorActivity : AppCompatActivity() {
 
         setupIntent()
         updateUI()
+
+        // Configurar el botón flotante para abrir EditActivity
+        binding.fabEdit.setOnClickListener {
+            val intent = Intent(this, EditActivity::class.java).apply {
+                putExtra("k_matricula", binding.txtemail.text.toString())
+                putExtra("k_nombre", binding.txtname.text.toString())
+                putExtra("k_telefono", binding.txtphone.text.toString())
+            }
+            startActivity(intent)
+        }
     }
 
     private fun setupIntent() {
@@ -55,8 +65,6 @@ class AutorActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-
-
 
         // Realizar llamada telefónica (cuando se haga clic en el teléfono)
         binding.txtphone.setOnClickListener {
@@ -82,12 +90,11 @@ class AutorActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_edit) {
-            val intent = Intent(this, EditActivity::class.java)
-            // Puedes pasar los valores actuales si es necesario
-            intent.putExtra("nombre", binding.txtname.text.toString())
-            intent.putExtra("correo", binding.txtemail.text.toString())
-            intent.putExtra("telefono", binding.txtphone.text.toString())
-
+            val intent = Intent(this, EditActivity::class.java).apply {
+                putExtra("k_matricula", binding.txtemail.text.toString())
+                putExtra("k_nombre", binding.txtname.text.toString())
+                putExtra("k_telefono", binding.txtphone.text.toString())
+            }
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
@@ -99,6 +106,5 @@ class AutorActivity : AppCompatActivity() {
         binding.txtemail.text = "S20004654"
         binding.txtphone.text = "+52 294 456 7890"
         // Si tienes un sitio web, agregarlo aquí
-
     }
 }
