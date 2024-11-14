@@ -85,8 +85,9 @@ class EditActivity : AppCompatActivity() {
         }
 
         setResult(RESULT_OK, intent)
-        finish()
+        finish() // Cierra la actividad y regresa a la actividad anterior
     }
+
 
     private fun validateFields(): Boolean {
         var isValid = true

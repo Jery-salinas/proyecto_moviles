@@ -15,6 +15,7 @@ import com.exodays.proyecto_moviles.databinding.ActivityAutorBinding
 class AutorActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAutorBinding
+    private val EDIT_REQUEST_CODE = 1001
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +33,7 @@ class AutorActivity : AppCompatActivity() {
             insets
         }
 
-        setupIntent()
+        // Configuración inicial de la UI
         updateUI()
 
         // Configurar el botón flotante para abrir EditActivity
@@ -42,10 +43,38 @@ class AutorActivity : AppCompatActivity() {
                 putExtra("k_nombre", binding.txtname.text.toString())
                 putExtra("k_telefono", binding.txtphone.text.toString())
             }
-            startActivity(intent)
+            startActivityForResult(intent, EDIT_REQUEST_CODE)  // Usamos startActivityForResult
+        }
+
+        // Configurar enlaces y acciones
+        setupIntent()
+    }
+
+    // Manejar la respuesta de EditActivity
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == EDIT_REQUEST_CODE && resultCode == RESULT_OK) {
+            // Extraer los datos recibidos
+            val matricula = data?.getStringExtra("k_matricula")
+            val nombre = data?.getStringExtra("k_nombre")
+            val telefono = data?.getStringExtra("k_telefono")
+
+            // Actualizar los campos en la UI
+            matricula?.let { binding.txtemail.text = it }
+            nombre?.let { binding.txtname.text = it }
+            telefono?.let { binding.txtphone.text = it }
+
+            // Si recibes la URI de la imagen, actualiza la imagen (si es necesario)
+            val imageUri = data?.getStringExtra("k_image_uri")
+            if (!imageUri.isNullOrEmpty()) {
+                binding.imgprofile.setImageURI(Uri.parse(imageUri))
+            }
+
+            Toast.makeText(this, "Datos actualizados", Toast.LENGTH_SHORT).show()
         }
     }
 
+    // Configuración de enlaces (buscar por web, enviar correo, realizar llamada telefónica)
     private fun setupIntent() {
         // Buscar por web (cuando se haga clic en el nombre)
         binding.txtname.setOnClickListener {
@@ -76,9 +105,18 @@ class AutorActivity : AppCompatActivity() {
         }
     }
 
+    // Método para actualizar la UI con los datos actuales
+    private fun updateUI() {
+        // Establecer valores predeterminados (puedes actualizar esto con datos reales)
+        binding.txtname.text = "Jeremy"
+        binding.txtemail.text = "S20004654"
+        binding.txtphone.text = "+52 294 456 7890"
+        // Si tienes un sitio web, agregarlo aquí
+    }
+
     // Manejar el botón de retroceso
     override fun onSupportNavigateUp(): Boolean {
-        finish()
+        finish() // Finaliza la actividad y regresa a la anterior
         return true
     }
 
@@ -95,16 +133,8 @@ class AutorActivity : AppCompatActivity() {
                 putExtra("k_nombre", binding.txtname.text.toString())
                 putExtra("k_telefono", binding.txtphone.text.toString())
             }
-            startActivity(intent)
+            startActivityForResult(intent, EDIT_REQUEST_CODE)  // Usamos startActivityForResult
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun updateUI() {
-        // Establecer los valores de las vistas
-        binding.txtname.text = "Jeremy"
-        binding.txtemail.text = "S20004654"
-        binding.txtphone.text = "+52 294 456 7890"
-        // Si tienes un sitio web, agregarlo aquí
     }
 }
