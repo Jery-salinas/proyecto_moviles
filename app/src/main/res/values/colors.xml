@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="azul">#3F51B5</color>
+    <color name="verde">#4CAF50</color>
+    <color name="morado">#7765DE</color>
+    <color name="background_color">#F5F5F5</color> <!-- Nuevo color de fondo claro -->
+    <color name="text_primary">#1F1F1F</color> <!-- Color primario para títulos -->
+    <color name="text_secondary">#3C3C3C</color> <!-- Color secundario para textos -->
+    <color name="accent_color">#3F51B5</color> <!-- Color de acento para resaltar -->
+</resources>

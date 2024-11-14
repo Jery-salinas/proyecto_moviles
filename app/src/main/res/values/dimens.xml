@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_pading">16dp</dimen>
+    <dimen name="size_img_profile">256dp</dimen>
+    <dimen name="size_radio_crop">128dp</dimen>
+    <dimen name="size_txt_label">24sp</dimen>
+    <dimen name="margin_top_default">16dp</dimen>
+</resources>
