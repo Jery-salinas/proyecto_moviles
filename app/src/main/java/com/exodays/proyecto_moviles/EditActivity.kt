@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +40,8 @@ class EditActivity : AppCompatActivity() {
         // Configurar la selección de imagen
         setupImageSelection()
 
+        // Configurar el botón para guardar los cambios
+        setupSaveChangesButton()
     }
 
     private fun setupImageSelection() {
@@ -49,35 +52,23 @@ class EditActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupSaveChangesButton() {
+        val saveChangesButton: Button = findViewById(R.id.btnSaveChanges)
+        saveChangesButton.setOnClickListener {
+            if (validateFields()) {
+                sendData()
+                showConfirmationDialog()
+            } else {
+                Toast.makeText(this, "Verifica tus datos!!", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             imageUri = data.data
             binding.imgprofile.setImageURI(imageUri) // Establece la imagen en el ImageView
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_edit, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_send -> {
-                if (validateFields()) {
-                    sendData()
-                    showConfirmationDialog()
-                } else {
-                    Toast.makeText(this, "Verifica tus datos!!", Toast.LENGTH_SHORT).show()
-                }
-                true
-            }
-            R.id.action_cancel -> {
-                finish()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
         }
     }
 

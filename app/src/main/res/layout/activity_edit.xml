@@ -54,15 +54,13 @@
             android:layout_height="wrap_content"
             android:hint="Matricula"
             app:helperText="Obligatorio"
-            app:startIconDrawable="@drawable/icon_credencial"
-            >
+            app:startIconDrawable="@drawable/icon_credencial">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tieMatricula"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="30"
-                android:inputType="textPersonName|textCapWords"
-                />
+                android:inputType="textPersonName|textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -71,18 +69,14 @@
             android:layout_height="wrap_content"
             android:hint="Nombre"
             app:helperText="Obligatorio"
-            app:startIconDrawable="@drawable/icon_person"
-            >
+            app:startIconDrawable="@drawable/icon_person">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tieNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="30"
-                android:inputType="textPersonName|textCapWords"
-                />
+                android:inputType="textPersonName|textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilTelefono"
@@ -90,17 +84,24 @@
             android:layout_height="wrap_content"
             android:hint="Telefono"
             app:helperText="Obligatorio"
-            app:startIconDrawable="@drawable/icon_phone"
-            >
+            app:startIconDrawable="@drawable/icon_phone">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tieTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="30"
-                android:inputType="textPersonName|textCapWords"
-                />
+                android:inputType="textPersonName|textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Botón para aplicar cambios -->
+        <Button
+            android:id="@+id/btnSaveChanges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aplicar Cambios"
+            android:layout_gravity="end"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp" />
     </LinearLayout>
-
 </ScrollView>

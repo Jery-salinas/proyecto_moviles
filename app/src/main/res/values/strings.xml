@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">proyecto_moviles</string>
 
+
+    <string name="sitio_web">Sitio Web</string>
+    <string name="ubicacion">Ubicación</string>
+    <string name="telefono">Teléfono</string>
+    <string name="correo">Correo</string>
+    <string name="txt_configuracion">Habilitar ubicación</string>
+    <string name="txt_mapa">Ver mapa</string>
+    <string name="camera_icon">Seleccionar imagen de perfil</string>
+    <string name="k_nombre">nombre</string>
+    <string name="k_correo">correo</string>
+    <string name="k_telefono">telefono</string>
+    <string name="k_sitioweb">sitioWeb</string>
+    <string name="k_latitud">latitud</string>
+    <string name="k_longitud">longitud</string>
+    <string name="k_image_uri">image_uri</string>
+    <string name="Matricula">matricula</string>
+
 </resources>
